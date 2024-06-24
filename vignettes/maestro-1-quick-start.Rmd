@@ -97,6 +97,7 @@ A project with a single pipeline is ok, but in `maestro` is more useful when you
 ```{r example-pipe, echo = TRUE, eval = FALSE, message = FALSE, warning = FALSE}
 create_pipeline(
   pipe_name = "another_pipeline",
+  pipeline_dir = "pipelines",
   frequency = "1 hour",
   start_time = "2024-05-17 15:00:00",
   tz = "America/Halifax",

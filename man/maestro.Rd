@@ -21,11 +21,11 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Will Hipson \email{will.hipson@hiaa.ca} (\href{https://orcid.org/0000-0002-3931-2189}{ORCID}) [copyright holder]
+\strong{Maintainer}: Will Hipson \email{will.e.hipson@gmail.com} (\href{https://orcid.org/0000-0002-3931-2189}{ORCID}) [copyright holder]
 
 Authors:
 \itemize{
-  \item Ryan Garnett \email{ryan.garnett@hiaa.ca} [contributor, copyright holder]
+  \item Ryan Garnett \email{ryangarnett78@gmail.com} [contributor, copyright holder]
 }
 
 }

@@ -4,12 +4,16 @@
 \alias{create_maestro}
 \title{Creates a new maestro project}
 \usage{
-create_maestro(path = ".", type = "R", ...)
+create_maestro(path, type = "R", overwrite = FALSE, quiet = FALSE, ...)
 }
 \arguments{
 \item{path}{file path for the orchestrator script}
 
 \item{type}{file type for the orchestrator (supports R, Quarto, and RMarkdown)}
+
+\item{overwrite}{whether to overwrite an existing orchestrator or maestro project}
+
+\item{quiet}{whether to silence messages in the console (default = \code{FALSE})}
 
 \item{...}{unused}
 }
@@ -23,7 +27,7 @@ Creates a new maestro project
 
 # Creates a new maestro project with an R orchestrator
 new_proj_dir <- tempdir()
-create_maestro(new_proj_dir, type = "R")
+create_maestro(new_proj_dir, type = "R", overwrite = TRUE)
 
-create_maestro(new_proj_dir, type = "Quarto")
+create_maestro(new_proj_dir, type = "Quarto", overwrite = TRUE)
 }

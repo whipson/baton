@@ -58,7 +58,7 @@ daily_example <- function() {
 }
 ```
 
-For demostration purposes, I'll manually set the check time to be 08:00:00 UTC (this is the time maestro will use to compare against the scheduled time). In practice, you almost always want this to be the system time using either `Sys.time()` or `lubridate::now()`.
+For demonstration purposes, I'll manually set the check time to be 08:00:00 UTC (this is the time maestro will use to compare against the scheduled time). In practice, you almost always want this to be the system time using either `Sys.time()` or `lubridate::now()`.
 
 ```{r}
 # ./orchestrator.R

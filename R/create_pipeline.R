@@ -10,24 +10,30 @@
 #' @param log_level log level for the pipeline (e.g., INFO, WARN, ERROR). Fills in maestroLogLevel tag
 #' @param open whether or not to open the script upon creation
 #' @param quiet whether to silence messages in the console (default = `FALSE`)
+#' @param overwrite whether or not to overwrite an existing pipeline of the same name and location.
 #'
 #' @return invisible
 #' @export
 #' @examples
+#' pipeline_dir <- tempdir()
 #' create_pipeline(
 #'   "extract_data",
+#'   pipeline_dir = pipeline_dir,
 #'   frequency = "1 hour",
 #'   open = FALSE,
-#'   quiet = TRUE
+#'   quiet = TRUE,
+#'   overwrite = TRUE
 #' )
 #'
 #' create_pipeline(
 #'   "new_job",
+#'   pipeline_dir = pipeline_dir,
 #'   frequency = "20 minutes",
 #'   start_time = as.POSIXct("2024-06-21 12:20:00"),
 #'   log_level = "ERROR",
 #'   open = FALSE,
-#'   quiet = TRUE
+#'   quiet = TRUE,
+#'   overwrite = TRUE
 #' )
 #'
 #' # Clean up
@@ -40,7 +46,8 @@ create_pipeline <- function(
     tz = "UTC",
     log_level = "INFO",
     quiet = FALSE,
-    open = interactive()
+    open = interactive(),
+    overwrite = FALSE
   ) {
 
   # Makes a valid name for a pipe
@@ -61,8 +68,15 @@ create_pipeline <- function(
   }
 
   if (file.exists(path)) {
-    overwrite <- readline(glue::glue("File {path} already exists. Overwrite? [Y/n]: \n"))
-    if (tolower(overwrite) != "y") return(invisible())
+    if (!overwrite) {
+      cli::cli_abort(
+        c("File {.file path} already exists.",
+          "Set {.code create_pipeline(overwrite = TRUE)} to overwrite anyway."),
+        call = NULL
+      )
+    } else {
+      if (!quiet) cli::cli_alert_warning("Overwriting existing pipeline at {.file {path}}.")
+    }
   }
 
   writeLines(

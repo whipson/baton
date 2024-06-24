@@ -1,3 +1,20 @@
+# maestro 0.1.1
+
+## Breaking changes
+
+- Creater functions `create_pipeline()` and `create_maestro` no longer have default arguments for the path to where the scripts are 
+created. Users must explicitly define these paths.
+
+- Argument `log_file` in `run_schedule()` no longer defaults to `./maestro.log` but instead defaults to `NULL`.
+
+## Minor changes
+
+- Creater functions `create_*` now take a boolean `overwrite` argument to make the overwriting of existing pipelines, projects, and orchestrators more explicit.
+
+# maestro 0.1.0
+
+- Initial CRAN submission
+
 # maestro 0.0.4
 
 ## Bug fixes

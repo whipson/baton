@@ -25,18 +25,15 @@ using `roxygen2` tags - these are special comments (decorators) above
 each function. Then you create an **orchestrator** containing `maestro`
 functions for scheduling and invoking the pipelines.
 
-## Pre-release Disclaimer
-
-`maestro` is in early development and its API may undergo changes
-without notice or deprecation. We encourage people to try it out in real
-world scenarios, but we do not yet advise using it in critical
-production environments until it has been thoroughly tested and the API
-has stabilized.
-
 ## Installation
 
-`maestro` is currently pre-release and not available yet on CRAN. It can
-be installed from Github directly like so:
+`maestro` is available on CRAN and can be installed via:
+
+``` r
+install.packages("maestro")
+```
+
+Or, try out the development version via:
 
 ``` r
 devtools::install_github("https://github.com/whipson/maestro")

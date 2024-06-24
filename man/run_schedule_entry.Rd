@@ -8,7 +8,7 @@ run_schedule_entry(
   script_path,
   pipe_name,
   resources = list(),
-  log_file = tempfile(),
+  log_file = NULL,
   log_level = "INFO",
   log_file_max_bytes
 )

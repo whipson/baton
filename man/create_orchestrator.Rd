@@ -5,10 +5,11 @@
 \title{Create a new orchestrator}
 \usage{
 create_orchestrator(
-  path = "./orchestrator",
+  path,
   type = c("R", "Quarto", "RMarkdown"),
   open = interactive(),
-  quiet = FALSE
+  quiet = FALSE,
+  overwrite = FALSE
 )
 }
 \arguments{
@@ -19,6 +20,8 @@ create_orchestrator(
 \item{open}{whether or not to open the script upon creation}
 
 \item{quiet}{whether to silence messages in the console (default = \code{FALSE})}
+
+\item{overwrite}{whether to overwrite an existing orchestrator or maestro project}
 }
 \value{
 invisible

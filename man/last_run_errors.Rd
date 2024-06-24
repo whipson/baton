@@ -15,7 +15,7 @@ the all runs succeeded or \code{run_schedule()} has not been run it will be \cod
 }
 \examples{
 pipeline_dir <- tempdir()
-create_pipeline("my_new_pipeline", pipeline_dir, open = FALSE)
+create_pipeline("my_new_pipeline", pipeline_dir, open = FALSE, overwrite = TRUE)
 schedule <- build_schedule(pipeline_dir = pipeline_dir)
 run_schedule(schedule)
 last_run_errors()

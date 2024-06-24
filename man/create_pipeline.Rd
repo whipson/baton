@@ -12,7 +12,8 @@ create_pipeline(
   tz = "UTC",
   log_level = "INFO",
   quiet = FALSE,
-  open = interactive()
+  open = interactive(),
+  overwrite = FALSE
 )
 }
 \arguments{
@@ -31,6 +32,8 @@ create_pipeline(
 \item{quiet}{whether to silence messages in the console (default = \code{FALSE})}
 
 \item{open}{whether or not to open the script upon creation}
+
+\item{overwrite}{whether or not to overwrite an existing pipeline of the same name and location.}
 }
 \value{
 invisible
@@ -39,20 +42,25 @@ invisible
 Allows the creation of new pipelines (R scripts) and fills in the maestro tags as specified.
 }
 \examples{
+pipeline_dir <- tempdir()
 create_pipeline(
   "extract_data",
+  pipeline_dir = pipeline_dir,
   frequency = "1 hour",
   open = FALSE,
-  quiet = TRUE
+  quiet = TRUE,
+  overwrite = TRUE
 )
 
 create_pipeline(
   "new_job",
+  pipeline_dir = pipeline_dir,
   frequency = "20 minutes",
   start_time = as.POSIXct("2024-06-21 12:20:00"),
   log_level = "ERROR",
   open = FALSE,
-  quiet = TRUE
+  quiet = TRUE,
+  overwrite = TRUE
 )
 
 # Clean up
